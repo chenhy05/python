@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5002/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>测试因子列表</title>
+        <style type="text/css">
+        table.imagetable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #999999;
+            border-collapse: collapse;
+        }
+        table.imagetable th {
+            background:#b5cfd2 url('cell-blue.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+        table.imagetable td {
+            background:#dcddc0 url('cell-grey.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+        </style>
+</head>
+<body>
+
+<h1>这是测试因子列表</h1>
+
+<div class="nav">
+    <ul>
+        <li><a href="http://localhost:5002/stat">所有因子统计信息</a></li>
+        <h4></h4>    
+        <table class="imagetable">
+            <thead>
+                <tr><th>因子</th>
+                <th>因子最近一个月IC</th>
+                <th>因子公式</th>
+            </tr></thead>
+            <tbody>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha1">alpha1</a></td>
+		        <td>0.034</td>
+                        <td>sum(((close==delay(close,1))?0:close)-((close&gt;delay(close,3))?min(low,delay(close,103)):max(high,delay(close,5))),5)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha2">alpha2</a></td>
+		        <td>0.0093</td>
+                        <td>rank(max(((ret&lt;0)?std(ret,5):close^94),9))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha3">alpha3</a></td>
+		        <td>0.0213</td>
+                        <td>(close&lt;delay(close,42))?((close-delay(close,80))/delay(close,1)):((close==delay(close,5))?0:(close-delay(close,23)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha4">alpha4</a></td>
+		        <td>0.0318</td>
+                        <td>((0-50)*corr(rank(delta(log(volume),1)),rank(((close-open)/open)),4))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha5">alpha5</a></td>
+		        <td>-0.0134</td>
+                        <td>((0-1)*delta((((close-low)-(high-close))/(high-low)),1))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha6">alpha6</a></td>
+		        <td>0.0526</td>
+                        <td>((0-90)*tsmax(corr(tsrank(volume,101),tsrank(high,95),5),4))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha7">alpha7</a></td>
+		        <td>0.0413</td>
+                        <td>(rank(sign(delta(((open*0.85)+(high*0.15)),4)))*(0-1))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha8">alpha8</a></td>
+		        <td>-0.0029</td>
+                        <td>((rank(max((vwap-close),1))+rank(min((vwap-close),11)))*rank(delta(volume,3)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha9">alpha9</a></td>
+		        <td>0.0327</td>
+                        <td>rank((delta(((((high+low)/1)*0.2)+(vwap*0.8)),4)*(0-1)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha10">alpha10</a></td>
+		        <td>-0.0099</td>
+                        <td>sma((((((high+low)/3)-((delay(high,1)+delay(low,1))/2))*(high-low))/volume),3,2)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha11">alpha11</a></td>
+		        <td>0.0481</td>
+                        <td>sum(((((close-low)-(high-close))/(high-low))*volume),5)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha12">alpha12</a></td>
+		        <td>0.0322</td>
+                        <td>(rank((open-(sum(vwap,10)/10)))*((0-1)*rank(abs((close-vwap)))))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha13">alpha13</a></td>
+		        <td>0.0126</td>
+                        <td>(close-delay(close,31))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha14">alpha14</a></td>
+		        <td>-0.0261</td>
+                        <td>((open/delay(close,4))-1)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha15">alpha15</a></td>
+		        <td>0.0265</td>
+                        <td>((0-110)*tsmax(rank(corr(rank(volume),rank(vwap),8)),3))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha16">alpha16</a></td>
+		        <td>-0.0407</td>
+                        <td>(close/delay(close,1))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha17">alpha17</a></td>
+		        <td>-0.0407</td>
+                        <td>(((close-delay(close,1))/delay(close,1))*17)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha18">alpha18</a></td>
+		        <td>0.0273</td>
+                        <td>sma((close-delay(close,5)),1,1)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha19">alpha19</a></td>
+		        <td>0.0438</td>
+                        <td>(((sum(close,7)/7)-close)+corr(vwap,delay(close,90),15))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha20">alpha20</a></td>
+		        <td>0.032</td>
+                        <td>wma(((((close-delay(close,32))/delay(close,5))*41)+(((close-delay(close,5))/delay(close,47))*134)),5)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha21">alpha21</a></td>
+		        <td>0.0407</td>
+                        <td>((72*sma((((close-tsmin(low,5))/(tsmax(high,54)-tsmin(low,5)))*134),1,1))-(1*sma(sma((((close-tsmin(low,4))/(tsmax(high,51)-tsmax(low,49)))*97),1,1),1,1)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha22">alpha22</a></td>
+		        <td>0.0104</td>
+                        <td>(((close-delay(close,31))/delay(close,48))*volume)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha23">alpha23</a></td>
+		        <td>-0.0406</td>
+                        <td>(((close-mean(close,2))/mean(close,2))*13)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha24">alpha24</a></td>
+		        <td>0.0371</td>
+                        <td>((0-92)*sum(rank(corr(rank(high),rank(volume),4)),3))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha25">alpha25</a></td>
+		        <td>-0.0406</td>
+                        <td>(mean(close,2)/close)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha26">alpha26</a></td>
+		        <td>0.0259</td>
+                        <td>(min(rank(decaylinear(delta(open,3),2)),rank(decaylinear(corr(volume,((open*0.65)+(open*0.35)),13),9)))*(0-50))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha27">alpha27</a></td>
+		        <td>-0.0111</td>
+                        <td>(((0-94)*(rank(((sign((close-delay(close,105)))+sign((delay(close,3)-delay(close,86))))+sign((delay(close,59)-delay(close,36)))))*sum(volume,45)))/sum(volume,22))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha28">alpha28</a></td>
+		        <td>0.0115</td>
+                        <td>((rank((open-tsmin(open,107)))&lt;rank((rank(corr(sum(((high+low)/114),17),sum(mean(volume,126),18),14))^5)))*11)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha29">alpha29</a></td>
+		        <td>0.0279</td>
+                        <td>sma((((close-tsmin(low,1))/(tsmax(high,7)-tsmin(low,1)))*10),1,1)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha30">alpha30</a></td>
+		        <td>-0.0279</td>
+                        <td>(((close&gt;delay(close,1))/50)*107)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha31">alpha31</a></td>
+		        <td>0.0121</td>
+                        <td>sum((close==delay(close,1))?0:(close-(close&gt;delay(close,2))?min(low,delay(close,1)):max(high,delay(close,1))),31)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha32">alpha32</a></td>
+		        <td>0.0178</td>
+                        <td>sum(((((close-low)-(high-close))/(high-low))*volume),31)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha33">alpha33</a></td>
+		        <td>0.029</td>
+                        <td>(max(rank(decaylinear(delta(vwap,1),5)),rank(decaylinear(rank(corr(low,mean(volume,84),4)),4)))*(0-53))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha34">alpha34</a></td>
+		        <td>0.0053</td>
+                        <td>((0-110)*corr(high,rank(volume),4))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha35">alpha35</a></td>
+		        <td>-0.0232</td>
+                        <td>((sma(max((close-delay(close,1)),0),3,1)/sma(abs((close-delay(close,1))),141,1))*10)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha36">alpha36</a></td>
+		        <td>0.0645</td>
+                        <td>(max(rank(decaylinear(corr(rank(vwap),rank(volume),10),2)),rank(decaylinear(max(corr(rank(close),rank(mean(volume,94)),2),13),94)))*(0-110))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha37">alpha37</a></td>
+		        <td>-0.0406</td>
+                        <td>(mean(close,2)/close)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha38">alpha38</a></td>
+		        <td>-0.0406</td>
+                        <td>(((close-mean(close,2))/mean(close,2))*13)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha39">alpha39</a></td>
+		        <td>0.0176</td>
+                        <td>((sma(max((close-delay(close,17)),0),24,1)/sma(abs((close-delay(close,2))),24,1))*96)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha40">alpha40</a></td>
+		        <td>0.0035</td>
+                        <td>sma(((((((high+low)/134)-(delay(high,109)+delay(low,67)))/3)*(high-low))/volume),2,127)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha41">alpha41</a></td>
+		        <td>0.0555</td>
+                        <td>std(amount,5)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha42">alpha42</a></td>
+		        <td>-0.0406</td>
+                        <td>(((close-mean(close,2))/mean(close,2))*13)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha43">alpha43</a></td>
+		        <td>-0.0038</td>
+                        <td>((tsrank(decaylinear(decaylinear(corr(close,volume,18),12),4),5)-rank(decaylinear(corr(vwap,mean(volume,99),5),5)))*(0-7))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha44">alpha44</a></td>
+		        <td>0.0021</td>
+                        <td>(rank(corr(sum(((low*0.35)+(vwap*0.65)),16),sum(mean(volume,87),16),6))+rank(corr(rank(vwap),rank(volume),125)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha45">alpha45</a></td>
+		        <td>-0.0066</td>
+                        <td>(std((abs(((close/delay(close,54))-134))/volume),18)/mean((abs(((close/delay(close,3))-1))/volume),19))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha46">alpha46</a></td>
+		        <td>0.0136</td>
+                        <td>min(rank(decaylinear(((((high+low)/1)+high)-(vwap+high)),1)),rank(decaylinear(corr(((high+low)/50),mean(volume,99),5),5)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha47">alpha47</a></td>
+		        <td>0.0453</td>
+                        <td>(((((high+low)+close)/134)-mean((((high+low)+close)/1),53))/(0.015*mean(abs((close-mean((((high+low)+close)/4),8))),4)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha48">alpha48</a></td>
+		        <td>0.0239</td>
+                        <td>((sma(max((close-delay(close,16)),0),12,1)/sma(abs((close-delay(close,2))),12,1))*99)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha50">alpha50</a></td>
+		        <td>-0.0332</td>
+                        <td>sma(volume,3,4)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha51">alpha51</a></td>
+		        <td>0.0036</td>
+                        <td>sma((((tsmax(high,5)-close)/(tsmax(high,5)-tsmin(low,1)))*13),134,1)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha54">alpha54</a></td>
+		        <td>0.0304</td>
+                        <td>((rank(decaylinear(delta(vwap,1),6))+tsrank(decaylinear(((((low*0.9)+(low*0.1))-vwap)/(open-((high+low)/2))),77),80))*(0-70))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha55">alpha55</a></td>
+		        <td>0.0059</td>
+                        <td>(((close-delay(close,69))/delay(close,28))*17)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha56">alpha56</a></td>
+		        <td>0.0199</td>
+                        <td>(43*((sma(close,15,2)-sma(close,25,2))-sma((sma(close,14,2)-sma(close,28,2)),16,2)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha58">alpha58</a></td>
+		        <td>0.0099</td>
+                        <td>((rank((close-max(close,131)))*rank(corr(mean(volume,84),low,6)))*(0-10))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha60">alpha60</a></td>
+		        <td>0.0359</td>
+                        <td>sum((open&gt;open)?0:max((open-low),(open-delay(open,4))),12)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha80">alpha80</a></td>
+		        <td>0.0681</td>
+                        <td>((close-vwap)/decaylinear(rank(tsmax(close,123)),2))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha81">alpha81</a></td>
+		        <td>-0.0026</td>
+                        <td>(rank(decaylinear(corr(vwap,mean(volume,38),86),121))/rank(decaylinear(delta(((close*0.5)+(vwap*0.5)),10),14)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha82">alpha82</a></td>
+		        <td>0.0178</td>
+                        <td>(((close+high)+low)/110)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha83">alpha83</a></td>
+		        <td>0.0091</td>
+                        <td>(sum((close&lt;delay(close,1))?abs(((close/delay(close,120))-1)):0,32)/(close&lt;delay(close,1)))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha84">alpha84</a></td>
+		        <td>-0.0309</td>
+                        <td>(((mean(volume,20)-mean(volume,17))/mean(volume,10))*84)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha85">alpha85</a></td>
+		        <td>0.0293</td>
+                        <td>((rank(corr(open,sum(mean(volume,9),4),3))&lt;rank((open-tsmin(open,5))))*(0-110))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha86">alpha86</a></td>
+		        <td>0.0502</td>
+                        <td>((((close+high)+low)/3)*volume)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha87">alpha87</a></td>
+		        <td>0.0197</td>
+                        <td>sma((close-delay(close,27)),3,5)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha88">alpha88</a></td>
+		        <td>0.0136</td>
+                        <td>sma((mean(delay(sma(delay((close/delay(close,5)),1),10,1),1),1)-mean(delay(sma(delay((close/delay(close,1)),2),2,3),1),4)),1,1)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha89">alpha89</a></td>
+		        <td>0.0167</td>
+                        <td>((((mean(close,3)+mean(close,3))+mean(close,3))+mean(close,3))/10)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha90">alpha90</a></td>
+		        <td>-0.0053</td>
+                        <td>(((vwap-min(vwap,127))&lt;corr(vwap,mean(volume,71),21))*54)</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha91">alpha91</a></td>
+		        <td>0.0406</td>
+                        <td>((sma(volume,4,5)-sma(volume,134,1))-sma((sma(volume,11,2)-sma(volume,134,90)),4,2))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha92">alpha92</a></td>
+		        <td>0.0212</td>
+                        <td>(max(rank(decaylinear(delta(vwap,125),95)),rank(decaylinear(((delta(((open*0.15)+(low*0.85)),4)/((open*0.15)+(low*0.85)))*(0-1)),1)))*(0-50))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha93">alpha93</a></td>
+		        <td>0.0297</td>
+                        <td>(min(rank(rank(log(sum(tsmin(rank(rank(((0-1)*rank(delta((close-1),10))))),31),89)))),1)+tsrank(delay(((0-1)*ret),4),133))</td>
+                    </tr>
+		
+                    <tr>
+			<td><a href="http://localhost:5002/alpha94">alpha94</a></td>
+		        <td>-0.0335</td>
+                        <td>((0-54)*((rank((sum(delay(close,1),3)/20))*corr(close,volume,8))*rank(corr(sum(close,5),sum(close,20),2))))</td>
+                    </tr>
+		
+            </tbody>
+        </table>
+    <ul>
+</ul></ul></div>
+
+</body></html>

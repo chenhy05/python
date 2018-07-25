@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!-- saved from url=(0026)http://localhost:5002/stat -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Echarts</title>
+<script data-require-id="echarts/chart/line" src="./Echarts_files/line.js.下载" async=""></script></head>
+<body>
+
+<h1>这是因子调优统计信息</h1>
+
+    <div id="main1" style="height: 400px; -webkit-tap-highlight-color: transparent; user-select: none; background-color: rgba(0, 0, 0, 0); cursor: pointer;" _echarts_instance_="1527840125621"><div style="position: relative; overflow: hidden; width: 1264px; height: 400px;"><div data-zr-dom-id="bg" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1264px; height: 400px; user-select: none;"></div><canvas width="1896" height="600" data-zr-dom-id="0" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1264px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas width="1896" height="600" data-zr-dom-id="1" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1264px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><canvas width="1896" height="600" data-zr-dom-id="_zrender_hover_" class="zr-element" style="position: absolute; left: 0px; top: 0px; width: 1264px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas><div class="echarts-tooltip zr-element" style="position: absolute; display: block; border-style: solid; white-space: nowrap; transition: left 0.4s, top 0.4s; background-color: rgba(0, 0, 0, 0.7); border-width: 0px; border-color: rgb(51, 51, 51); border-radius: 4px; color: rgb(255, 255, 255); padding: 5px; left: 898px; top: 190px;">43<br>ic_change : 0.0035<br>return_change : 0.0239</div></div></div>
+
+    <script src="./Echarts_files/echarts.js.下载"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line'   // 
+            ],
+            function(ec){
+                var myChart1 = ec.init(document.getElementById('main1'));
+
+                var option1 = {
+                    title: {
+                        left : 'center',
+                        text: '调优后因子IC,资金量变化图'
+                    },
+
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['ic_change','return_change']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis : [
+                        {
+                            data : [10, 1, 13, 3, 9, 11, 6, 4, 12, 19, 20, 14, 15, 8, 16, 7, 17, 5, 2, 22, 26, 23, 31, 32, 27, 25, 24, 33, 35, 41, 45, 42, 46, 37, 47, 50, 34, 38, 30, 43, 55, 54, 82, 81, 60, 56, 58, 84, 86, 89, 91, 80, 94, 93]
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name : 'ic_change',
+                            type : 'value'
+                        },
+                        {
+                            name : 'annual_return_change',
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name : 'ic_change',
+                            yAxisIndex: 0,
+                            type:'line',
+                            data : [-0.062, 0.0006, -0.0092, -0.009, -0.0001, 0.0039, 0.0019, 0.004, 0.0, -0.0064, 0.0115, -0.0594, 0.0032, 0.0021, 0.0536, 0.0, 0.0518, 0.0, 0.0, -0.0133, 0.0051, 0.0545, -0.027, -0.0006, -0.0315, 0.0545, 0.0021, 0.0046, 0.0001, 0.003, -0.0039, 0.0548, 0.0345, 0.044, 0.0169, -0.0114, 0.006, 0.044, 0.0, 0.0035, -0.0023, 0.0076, -0.0, 0.0058, 0.0046, -0.0179, 0.0092, -0.0442, 0.0, 0.0049, 0.0176, 0.0015, -0.0143, 0.0411] 
+                        },
+                        {
+                            name : 'return_change',
+                            yAxisIndex: 1,
+                            type:'line',
+                            data : [0.0064, 0.1939, 0.3149, 0.4598, -0.007, 0.0001, 0.0335, -0.0125, 0.0, 0.0604, 0.1499, -0.1006, 0.0484, 0.0066, 0.2104, 0.0, 0.2073, 0.0, -0.0027, 0.2201, 0.0056, 0.1768, 0.2239, -0.0049, 0.1822, 0.1768, 0.0191, -0.2117, 0.1752, -0.0047, -0.1939, 0.1714, 0.0838, 0.1609, 0.3454, -0.1278, 0.0576, 0.1609, 0.0, 0.0239, 0.2045, 0.0911, 0.0, -0.0976, -0.0019, 0.0777, 0.0051, 0.3362, 0.0, 0.0077, 0.0234, 0.0244, -0.1388, -0.0244]
+                        }
+                    ]
+                }
+                myChart1.setOption(option1);
+            }
+        );
+    </script>
+
+
+</body></html>
