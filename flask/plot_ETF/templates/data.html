@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="utf-8">  
+    <title>{{name}}</title>  
+	<style>
+        #leftDiv
+        {
+          float:left;
+          width:10%;
+        }
+        #Kchart1
+        {
+          float:right;
+          width:85%;
+        }
+	</style>
+</head>  
+<body>
+<h1>{{name[3:]}}</h1>
+<div id="leftDiv">
+	<ul>
+		{%for k in user %}
+			<li><a href="{{url_for('show',yid=k)}}">{{k}}</a></li>
+		{%endfor%}
+	<ul>
+</div>
+	
+
+	<div id="Kchart1" style="height:500px;border:1px solid #ccc;padding:10px;"></div>
+	<script type=text/javascript src="{{url_for('static', filename='js/echarts.min.js')}}"></script>  
+	<script type=text/javascript src="{{url_for('static', filename=name)}}"></script> 
+	<script type=text/javascript src="{{url_for('static', filename='js/draw.js')}}"></script>  
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
