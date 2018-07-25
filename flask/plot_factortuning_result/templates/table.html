@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>测试因子结果</title>
+</head>
+<body>
+
+<h1>这是测试因子结果</h1>
+
+    <!--为Echarts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="height:400px"></div>
+    <!-- ECharts单文件引入 -->
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用折线图就加载line模块，按需加载
+            ],
+            function(ec){
+                var myChart = ec.init(document.getElementById('main')); 
+            
+                var option = {
+                    title: {
+                        left : 'center',
+                        text: '因子IC,资金量变化图'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['IC','capital']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : {{user[9]}}
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name : '资金量',
+                            type : 'value'
+                        },
+                        {
+                            name : 'IC值',
+                            type : 'value',
+                            axisLabel:{formatter:'{value}%'}
+                        }
+                       
+                    ],
+                    series : [
+                        {
+                            name:'capital',
+                            type:'line',
+                            yAxisIndex : 0,
+                            data:{{user[10]}}
+                        },
+
+                        {
+                            name:'IC',
+                            type:'line',
+                            yAxisIndex: 1,
+                            data:{{user[11]}}
+                        }
+                    ]
+                }
+                myChart.setOption(option);
+            }              
+        );
+    </script> 
+<hr>
+<table>
+	<thead>
+		<tr><th>因子公式:{{user[0]}}</th></tr>
+		<tr><th>因子方向:{{user[1]}}(pos:因子值最大的前20%股票比因子值最小的前20%股票年化收益高；neg反之)</th></tr>
+                
+		<tr><th>因子年化收益:{{user[2][:5]}}</th></tr>
+		<tr><th>因子最大回撤:{{user[3][:5]}}</th></tr>
+		<tr><th>因子风险收益比:{{user[4][:5]}}</th></tr>
+		<tr><th>因子夏普:{{user[5][:5]}}</th></tr>
+		<tr><th>因子索提诺:{{user[6][:5]}}</th></tr>
+		<tr><th>因子IC :{{user[7][:5]}}</th></tr>
+		<tr><th>因子调优前IC:{{user[8][:5]}}</th></tr>
+	</thead>
+</table>
+</body>
+</html>

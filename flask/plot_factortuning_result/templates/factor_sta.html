@@ -1,0 +1,84 @@
+    <!-- ECharts单文件引入 -->
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Echarts</title>
+</head>
+<body>
+
+<h1>这是因子调优统计信息</h1>
+
+    <div id="main1" style="height:400px"></div>
+
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line'   // 
+            ],
+            function(ec){
+                var myChart1 = ec.init(document.getElementById('main1'));
+
+                var option1 = {
+                    title: {
+                        left : 'center',
+                        text: '调优后因子IC,资金量变化图'
+                    },
+
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['ic_change','return_change']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis : [
+                        {
+                            data : {{user['index']}}
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name : 'ic_change',
+                            type : 'value'
+                        },
+                        {
+                            name : 'annual_return_change',
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            name : 'ic_change',
+                            yAxisIndex: 0,
+                            type:'line',
+                            data : {{user['ic']}} 
+                        },
+                        {
+                            name : 'return_change',
+                            yAxisIndex: 1,
+                            type:'line',
+                            data : {{user['annual']}}
+                        }
+                    ]
+                }
+                myChart1.setOption(option1);
+            }
+        );
+    </script>
+
+</body>
+</html>

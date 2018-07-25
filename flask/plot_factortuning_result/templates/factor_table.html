@@ -1,0 +1,542 @@
+    <!-- ECharts单文件引入 -->
+<!doctype html>
+<html lang="en">
+<head>
+	<title>测试因子结果</title>
+        <style>
+        #leftleftDiv
+        {
+          float:left;
+          width:30%;
+        }
+        #leftrightDiv
+        {
+          float:left;
+          width:30%;
+        }
+        #middleleftDiv
+        {
+          float:left;
+          width:30%;
+        }
+        #middlerightDiv
+        {
+          float:left;
+          width:30%;
+        }
+        #rightleftDiv
+        {
+          float:left;
+          width:30%;
+        }
+        #rightrightDiv
+        {
+          float:left;
+          width:30%;
+        }
+        </style>
+</head>
+<body>
+
+<h1>这是测试因子结果</h1>
+
+<table>
+	<thead>
+		<tr><th>调优后因子公式:{{user[0]}}</th></tr>
+		<tr><th>原始因子公式:{{user[1]}}</th></tr>
+		<tr><th>因子方向:{{user[2]}}(pos:因子值最大的前20%股票比因子值最小的前20%股票年化收益高；neg反之)</th></tr>        
+	</thead>
+</table>
+<hr>
+<h4></h4>
+    <!--为Echarts准备一个具备大小（宽高）的Dom -->
+    <div id="main1" style="height:400px"></div>
+            
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用折线图就加载line模块，按需加载
+            ],
+            function(ec){
+                var myChart1 = ec.init(document.getElementById('main1')); 
+            
+                var option1 = {
+                    title: {
+                        left : 'center',
+                        text: '调优后因子IC,资金量变化图'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['IC','capital']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : {{user[3]}}
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name : '资金量',
+                            type : 'value'
+                        },
+                        {
+                            name : 'IC值',
+                            type : 'value',
+                            axisLabel:{formatter:'{value}%'}
+                        }
+                       
+                    ],
+                    series : [
+                        {
+                            name:'capital',
+                            type:'line',
+                            yAxisIndex : 0,
+                            data:{{user[11]}}
+                        },
+
+                        {
+                            name:'IC',
+                            type:'line',
+                            yAxisIndex: 1,
+                            data:{{user[12]}}
+                        }
+                    ]
+                }
+                myChart1.setOption(option1);
+            }              
+        );
+    </script> 
+
+
+    <div id="main2" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/line' // 使用折线图就加载line模块，按需加载
+            ],
+            function(ec){
+                var myChart2 = ec.init(document.getElementById('main2')); 
+            
+                var option2 = {
+                    title: {
+                        left : 'center',
+                        text: '原始因子IC,资金量变化图'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['IC','capital']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis : [
+                        {
+                            type : 'category',
+                            boundaryGap : false,
+                            data : {{user[-3]}}
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            name : '资金量',
+                            type : 'value'
+                        },
+                        {
+                            name : 'IC值',
+                            type : 'value',
+                            axisLabel:{formatter:'{value}%'}
+                        }
+                       
+                    ],
+                    series : [
+                        {
+                            name:'capital',
+                            type:'line',
+                            yAxisIndex : 0,
+                            data:{{user[-2]}}
+                        },
+
+                        {
+                            name:'IC',
+                            type:'line',
+                            yAxisIndex: 1,
+                            data:{{user[-1]}}
+                        }
+                    ]
+                }
+                myChart2.setOption(option2);
+            }              
+        );
+    </script> 
+
+
+<hr>
+<big><b>因子调优前后各指标示意图</b></big>
+<h4></h4> 
+    <div id="leftleftDiv" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+         
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar'
+            ],
+            function(ec){
+                var myChart4 = ec.init(document.getElementById('leftleftDiv')); 
+            
+                var option4 = {
+                    title: {
+                        left : 'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['adjusted','init']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis: {
+                        type: 'category',
+                        data: ['annual_return']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: 'adjusted',
+                        data: [{{user[4]}}],
+                        type: 'bar'
+                    },
+                    {
+                        name: 'init',
+                        data: [{{user[13]}}],
+                        type: 'bar'
+                    }]}
+                myChart4.setOption(option4);
+            }
+        );
+    </script>
+    <div id="leftrightDiv" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+         
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar'
+            ],
+            function(ec){
+                var myChart5 = ec.init(document.getElementById('leftrightDiv')); 
+            
+                var option5 = {
+                    title: {
+                        left : 'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['adjusted','init']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis: {
+                        type: 'category',
+                        data: ['risk_return_ratio']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: 'adjusted',
+                        data: [{{user[6]}}],
+                        type: 'bar'
+                    },
+                    {
+                        name: 'init',
+                        data: [{{user[15]}}],
+                        type: 'bar'
+                    }]}
+                myChart5.setOption(option5);
+            }
+        );
+    </script>
+    <div id="middleleftDiv" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+         
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar'
+            ],
+            function(ec){
+                var myChart6 = ec.init(document.getElementById('middleleftDiv')); 
+            
+                var option6 = {
+                    title: {
+                        left : 'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['adjusted','init']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis: {
+                        type: 'category',
+                        data: ['max_dd']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: 'adjusted',
+                        data: [{{user[5]}}],
+                        type: 'bar'
+                    },
+                    {
+                        name: 'init',
+                        data: [{{user[14]}}],
+                        type: 'bar'
+                    }]}
+                myChart6.setOption(option6);
+            }
+        );
+    </script>
+    </script>
+    <div id="middlerightDiv" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+         
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar'
+            ],
+            function(ec){
+                var myChart7 = ec.init(document.getElementById('middlerightDiv')); 
+            
+                var option7 = {
+                    title: {
+                        left : 'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['adjusted','init']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis: {
+                        type: 'category',
+                        data: ['sharpe']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: 'adjusted',
+                        data: [{{user[7]}}],
+                        type: 'bar'
+                    },
+                    {
+                        name: 'init',
+                        data: [{{user[16]}}],
+                        type: 'bar'
+                    }]}
+                myChart7.setOption(option7);
+            }
+        );
+    </script>
+    </script>
+    <div id="rightleftDiv" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+         
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar'
+            ],
+            function(ec){
+                var myChart8 = ec.init(document.getElementById('rightleftDiv')); 
+            
+                var option8 = {
+                    title: {
+                        left : 'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['adjusted','init']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis: {
+                        type: 'category',
+                        data: ['IC']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: 'adjusted',
+                        data: [{{user[9]}}],
+                        type: 'bar'
+                    },
+                    {
+                        name: 'init',
+                        data: [{{user[18]}}],
+                        type: 'bar'
+                    }]}
+                myChart8.setOption(option8);
+            }
+        );
+    </script>
+    </script>
+    <div id="rightrightDiv" style="height:400px"></div>
+    <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+         
+        // 使用
+        require(
+            [
+                'echarts',
+                'echarts/chart/bar'
+            ],
+            function(ec){
+                var myChart9 = ec.init(document.getElementById('rightrightDiv')); 
+            
+                var option9 = {
+                    title: {
+                        left : 'center'
+                    },
+                    tooltip : {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data:['adjusted','init']
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+
+                    xAxis: {
+                        type: 'category',
+                        data: ['IR']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [{
+                        name: 'adjusted',
+                        data: [{{user[10]}}],
+                        type: 'bar'
+                    },
+                    {
+                        name: 'init',
+                        data: [{{user[19]}}],
+                        type: 'bar'
+                    }]}
+                myChart9.setOption(option9);
+            }
+        );
+    </script>
+<hr>
+</body>
+</html>

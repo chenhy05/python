@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>测试因子列表</title>
+</head>
+<body>
+
+<h1>这是测试因子列表</h1>
+
+<div class="nav">
+    <ul>
+        <li><a href="{{url_for('stat')}}">所有因子统计信息</a></li>
+            
+        <table>
+            <thead>
+                <th>因子</th>
+                <th>因子最近一个月IC</th>
+                <th>因子公式</th>
+            </thead>
+        </table>
+        <tbody>
+		{%for k in user %}
+                    <tr>
+			<td><a href="{{url_for('factor',yid=k[0])}}">{{k[0]}}</a></td>
+		        <td>{{k[3]}}</td>
+                        <td>{{k[2]}}</td>
+                    </tr>
+		{%endfor%}
+        </tbody>
+    <ul>
+</div>
+</body>
+</html>

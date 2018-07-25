@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>测试因子列表</title>
+        <style type="text/css">
+        table.imagetable {
+            font-family: verdana,arial,sans-serif;
+            font-size:11px;
+            color:#333333;
+            border-width: 1px;
+            border-color: #999999;
+            border-collapse: collapse;
+        }
+        table.imagetable th {
+            background:#b5cfd2 url('cell-blue.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+        table.imagetable td {
+            background:#dcddc0 url('cell-grey.jpg');
+            border-width: 1px;
+            padding: 8px;
+            border-style: solid;
+            border-color: #999999;
+        }
+        </style>
+</head>
+<body>
+
+<h1>这是测试因子列表</h1>
+
+<div class="nav">
+    <ul>
+        <li><a href="{{url_for('stat')}}">所有因子统计信息</a></li>
+        <h4></h4>    
+        <table class="imagetable">
+            <thead>
+                <th>因子</th>
+                <th>因子最近一个月IC</th>
+                <th>因子公式</th>
+            </thead>
+            <tbody>
+		{%for k in user %}
+                    <tr>
+			<td><a href="{{url_for('factor',yid=k[0])}}">{{k[0]}}</a></td>
+		        <td>{{k[3]}}</td>
+                        <td>{{k[2]}}</td>
+                    </tr>
+		{%endfor%}
+            </tbody>
+        </table>
+    <ul>
+</div>
+</body>
+</html>

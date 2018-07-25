@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>测试因子列表</title>
+</head>
+<body>
+
+<h1>这是测试因子结果</h1>
+<a href="{{url_for('factor',yid='alpha2')}}"></a>
+
+
+<table>
+	<thead>
+                <tr>
+		        <th>公式:{{user[0]}}</th>
+                </tr>
+                <tr>
+		        <th>方向:{{user[1][:6]}}</th>
+                </tr>
+                <tr>
+		        <th>年化收益:{{user[2][:6]}}</th>
+                </tr>
+                <tr>
+		        <th>最大回撤:{{user[3][:6]}}</th> 
+                </tr>
+                <tr>
+		        <th>风险收益比:{{user[4][:6]}}</th>
+                </tr>
+                <tr>
+		        <th>夏普比:{{user[5][:6]}}</th>
+                </tr>
+                <tr>
+		        <th>索提诺指标:{{user[6][:6]}}</th>
+                </tr>
+                <tr>
+		        <th>调优后IC:{{user[7][:6]}}</th>
+                </tr>
+                <tr>
+		        <th>初始IC:{{user[8][:6]}}</th>
+                </tr>
+	</thead>
+</table>
+
+
+
+
+
+
+
+</body>
+</html>
