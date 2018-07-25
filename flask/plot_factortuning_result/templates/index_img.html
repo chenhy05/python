@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title></title>
+</head>
+<body>
+<img src="{{avatar|default('http://p4.music.126.net/PtS0KnnT6RxImiWm3pMzDA==/1412872444918629.jpg?param=40y40')}}" alt="">
+<hr>
+<p>评论数:{{comments|length}}</p>
+<ul>
+	{% for comment in comments%}
+		<li>
+			<a href="#">{{comment.user}}</a>
+			<a href="#">{{comment.contend}}</a>
+		</li>
+	{%endfor%}
+</ul>
+</body>
+</html>
