@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  
+    <meta charset="utf-8">  
+    <title>{{name}}</title>  
+	<style>
+
+	</style>
+</head>  
+<body>
+<form action="{{url_for('main')}}" method="post">
+	<table>
+		<tbody>
+			<tr>
+				<td>indexcode:</td>
+				<td><input type="text" placeholder="请输入indexcode" name="indexcode"></td>
+			</tr>
+			<tr>
+				<td>date:</td>
+				<td><input type="text" placeholder="请输入date" name="date"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="查询"></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div id="Kchart1" style="height:800px;border:1px solid #ccc;padding:10px;"></div>
+	<script type=text/javascript src="{{url_for('static', filename='js/echarts.min.js')}}"></script>
+	<script type=text/javascript src="{{url_for('static',filename=name)}}"></script>
+	<script type=text/javascript src="{{url_for('static', filename='js/draw.js')}}"></script>  
+	
+</body> 
+
+
+</html>
+
+
+
+
+
+
+
+
